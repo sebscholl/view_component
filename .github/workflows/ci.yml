@@ -75,7 +75,7 @@ jobs:
         RAISE_ON_WARNING: 1
         MEASURE_COVERAGE: true
         RAILS_VERSION: ${{ matrix.rails_version }}
-        CAPTURE_PATCH_ENABLED: ${{ matrix.output_buffer == 'capture_patch_enabled' && 'true' || 'false' }}
+        CAPTURE_PATCH_ENABLED: ${{ matrix.capture_patch_enabled }}
     - name: Upload coverage results
       uses: actions/upload-artifact@master
       if: always()
