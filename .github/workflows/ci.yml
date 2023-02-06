@@ -43,7 +43,7 @@ jobs:
           - rails_version: "main"
             ruby_version: "3.1"
             mode: "capture_patch_enabled"
-          - rails_version: "5.2.6"
+          - rails_version: "5.2"
             ruby_version: "2.7"
             mode: "capture_patch_disabled"
           - rails_version: "6.0"
