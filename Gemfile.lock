@@ -1,7 +1,6 @@
 GIT
-  remote: https://github.com/excid3/appraisal.git
-  revision: 14855fc54ce88b42def871ce8bfd4259fbf06043
-  branch: fix-bundle-env
+  remote: https://github.com/thoughtbot/appraisal.git
+  revision: ac72bacb8b03fe76e0eb3a05b2fa1dd11a9949ae
   specs:
     appraisal (2.4.1)
       bundler
@@ -309,9 +308,6 @@ DEPENDENCIES
   jbuilder (~> 2)
   m (~> 1)
   minitest (= 5.6.0)
-  net-imap
-  net-pop
-  net-smtp
   pry (~> 0.13)
   puma (~> 5)
   rails (~> 7.0.0)

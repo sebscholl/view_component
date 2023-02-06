@@ -18,7 +18,7 @@ group :test do
 end
 
 group :development, :test do
-  gem "appraisal", github: "excid3/appraisal", branch: "fix-bundle-env"
+  gem "appraisal", github: "thoughtbot/appraisal"
 end
 
 if RUBY_VERSION >= "3.1"
