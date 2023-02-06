@@ -14,9 +14,21 @@ nav_order: 5
 
     *Hans Lemuet, Simon Fish*
 
+* Add experimental `config.view_component.capture_compatibility_patch_enabled` option resolving rendering issues related to forms, capture, turbo frames, etc.
+
+    *Blake Williams*
+
+* Add `#content?` method that indicates if content has been passed to component.
+
+    *Joel Hawksley*
+
 * Added example of a custom preview controller.
 
     *Graham Rogers*
+
+* Add Krystal to list of companies using ViewComponent.
+
+     *Matt Bearman*
 
 ## 3.0.0.rc1
 
