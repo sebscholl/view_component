@@ -22,7 +22,7 @@ jobs:
         bundle exec rake partial_benchmark
         bundle exec rake translatable_benchmark
   test:
-    name: test (Rails ${{ matrix.rails_version }}, Ruby ${{ matrix.ruby_version }})
+    name: test (Rails ${{ matrix.rails_version }}, Ruby ${{ matrix.ruby_version }}, ${{ matrix.mode }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
