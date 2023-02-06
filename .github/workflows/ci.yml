@@ -56,7 +56,6 @@ jobs:
         bundle exec appraisal rails-${{ matrix.versions.rails }} bundle
         bundle exec appraisal rails-${{ matrix.versions.rails }} rake
       env:
-        RAISE_ON_WARNING: 0
         MEASURE_COVERAGE: true
         RAILS_VERSION: ${{ matrix.versions.rails }}
         CAPTURE_PATCH_ENABLED: ${{ matrix.mode == 'capture_patch_enabled' && 'true' || 'false' }}
