@@ -197,6 +197,7 @@ module ViewComponent
 
     private
 
+    # :nocov:
     def preview_class
       result = if respond_to?(:described_class)
         raise "`render_preview` expected a described_class, but it is nil." if described_class.nil?
@@ -209,5 +210,6 @@ module ViewComponent
     rescue NameError
       raise NameError, "`render_preview` expected to find #{result}, but it does not exist."
     end
+    # :nocov:
   end
 end
