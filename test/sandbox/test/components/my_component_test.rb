@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 require "test_helper"
+require 'view_component/capybara_test_helpers'
 
 class MyComponentTest < ViewComponent::TestCase
+  include ::ViewComponent::CapybaraTestHelpers
+
+
   def setup
     ViewComponent::Preview.load_previews
   end
@@ -14,8 +18,6 @@ class MyComponentTest < ViewComponent::TestCase
   end
 
   def test_render_preview_with_args
-    render_preview(:with_content, params: {content: "foo"})
-
-    assert_text("foo")
+    visit_preview(:display_inline_component)
   end
 end

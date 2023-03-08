@@ -36,4 +36,12 @@ class ViewComponent::ActionViewCompatibilityTest < ViewComponent::TestCase
     render_inline(ContentTagComponent.new)
     assert_selector("div > p")
   end
+
+  def test_and_colon_methods_work
+    skip unless ENV["CAPTURE_PATCH_ENABLED"] == "true"
+
+    assert_nothing_raised do
+      render_inline(SlotsV2Component.new, &:with_title)
+    end
+  end
 end
