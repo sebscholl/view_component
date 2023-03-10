@@ -6,6 +6,7 @@ require "view_component/collection"
 require "view_component/compile_cache"
 require "view_component/compiler"
 require "view_component/config"
+require "view_component/errors"
 require "view_component/preview"
 require "view_component/slotable"
 require "view_component/translatable"
@@ -31,8 +32,6 @@ module ViewComponent
     include ViewComponent::Slotable
     include ViewComponent::Translatable
     include ViewComponent::WithContentHelper
-
-    ViewContextCalledBeforeRenderError = Class.new(StandardError)
 
     RESERVED_PARAMETER = :content
 
@@ -176,14 +175,7 @@ module ViewComponent
     # @return [ActionController::Base]
     def controller
       if view_context.nil?
-        raise(
-          ViewContextCalledBeforeRenderError,
-          "`#controller` can't be used during initialization, as it depends " \
-          "on the view context that only exists once a ViewComponent is passed to " \
-          "the Rails render pipeline.\n\n" \
-          "It's sometimes possible to fix this issue by moving code dependent on " \
-          "`#controller` to a `#before_render` method: https://viewcomponent.org/api.html#before_render--void."
-        )
+        raise Errors::InitializerViewContextDependency.new("controller")
       end
 
       @__vc_controller ||= view_context.controller
@@ -195,14 +187,7 @@ module ViewComponent
     # @return [ActionView::Base]
     def helpers
       if view_context.nil?
-        raise(
-          ViewContextCalledBeforeRenderError,
-          "`#helpers` can't be used during initialization, as it depends " \
-          "on the view context that only exists once a ViewComponent is passed to " \
-          "the Rails render pipeline.\n\n" \
-          "It's sometimes possible to fix this issue by moving code dependent on " \
-          "`#helpers` to a `#before_render` method: https://viewcomponent.org/api.html#before_render--void."
-        )
+        raise Errors::InitializerViewContextDependency.new("helpers")
       end
 
       # Attempt to re-use the original view_context passed to the first

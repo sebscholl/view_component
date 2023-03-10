@@ -104,6 +104,8 @@ namespace :docs do
       )
     ).chomp
 
+    binding.irb
+
     File.open("docs/api.md", "w") do |f|
       f.puts(docs)
     end
